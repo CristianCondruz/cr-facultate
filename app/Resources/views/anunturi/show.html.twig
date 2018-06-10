@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Anunturi</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ anunturi.id }}</td>
+            </tr>
+            <tr>
+                <th>Titlu</th>
+                <td>{{ anunturi.titlu }}</td>
+            </tr>
+            <tr>
+                <th>Continut</th>
+                <td>{{ anunturi.continut }}</td>
+            </tr>
+            <tr>
+                <th>Ranking</th>
+                <td>{{ anunturi.ranking }}</td>
+            </tr>
+            <tr>
+                <th>Creat_la</th>
+                <td>{% if anunturi.creatla %}{{ anunturi.creatla|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('anunturi_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('anunturi_edit', { 'id': anunturi.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

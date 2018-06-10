@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Administrare anunturi</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titlu</th>
+                <th>Continut</th>
+                <th>Ranking</th>
+                <th>Creat la</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for anunturi in anunturis %}
+            <tr>
+                <td><a href="{{ path('anunturi_show', { 'id': anunturi.id }) }}">{{ anunturi.id }}</a></td>
+                <td>{{ anunturi.titlu }}</td>
+                <td>{{ anunturi.continut }}</td>
+                <td>{{ anunturi.ranking }}</td>
+                <td>{% if anunturi.creatla %}{{ anunturi.creatla|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('anunturi_show', { 'id': anunturi.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('anunturi_edit', { 'id': anunturi.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('anunturi_new') }}">Creaza un nou anunt</a>
+        </li>
+    </ul>
+{% endblock %}

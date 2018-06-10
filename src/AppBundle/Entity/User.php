@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -11,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User extends BaseUser {
+class User extends BaseUser implements UserInterface {
 
   /**
    * @var int
@@ -55,7 +56,7 @@ class User extends BaseUser {
 
     // give everyone ROLE_USER!
     if (!in_array('ROLE_USER', $roles)) {
-      $roles = 'ROLE_USER';
+      $roles[] = 'ROLE_USER';
     }
     return $roles;
   }
@@ -130,5 +131,46 @@ class User extends BaseUser {
     return $this;
   }
 
+  /**
+   * Returns the password used to authenticate the user.
+   *
+   * This should be the encoded password. On authentication, a plain-text
+   * password will be salted, encoded, and then compared to this value.
+   *
+   * @return string The password
+   */
+  public function getPassword() {
+    return $this->password;
+  }
+
+  /**
+   * Returns the salt that was originally used to encode the password.
+   *
+   * This can return null if the password was not encoded using a salt.
+   *
+   * @return string|null The salt
+   */
+  public function getSalt() {
+    return $this->salt;
+  }
+
+  /**
+   * Returns the username used to authenticate the user.
+   *
+   * @return string The username
+   */
+  public function getUsername() {
+    return $this->email;
+  }
+
+  /**
+   * Removes sensitive data from the user.
+   *
+   * This is important if, at any given point, sensitive information like
+   * the plain-text password is stored on this object.
+   */
+  public function eraseCredentials() {
+    $this->plainPassword = NULL;
+  }
 }
 
