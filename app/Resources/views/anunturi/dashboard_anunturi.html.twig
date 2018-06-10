@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-  <h1>Administrare anunturi</h1>
+  <h3 class="mb-3">anunturi</h3>
   <div class="list-group">
     {% for anunturi in anunturis %}
-      <a href="{{ path('anunturi_show', { 'id': anunturi.id }) }}" class="list-group-item list-group-item-action flex-column align-items-start active">
+      <a href="{{ path('anunturi_show', { 'id': anunturi.id }) }}" class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">{{ anunturi.titlu }}</h5>
           <small>{% if anunturi.creatla %}{{ anunturi.creatla|ago }}{% endif %}</small>
@@ -14,36 +14,5 @@
       </a>
     {% endfor %}
   </div>
-  <table>
-    <thead>
-    <tr>
-      <th>Id</th>
-      <th>Titlu</th>
-      <th>Continut</th>
-      <th>Ranking</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for anunturi in anunturis %}
-      <tr>
-        <td><a href="{{ path('anunturi_show', { 'id': anunturi.id }) }}">{{ anunturi.id }}</a></td>
-        <td>{{ anunturi.titlu }}</td>
-        <td>{{ anunturi.continut }}</td>
-        <td>{{ anunturi.ranking }}</td>
-        <td>
-          <ul>
-            <li>
-              <a href="{{ path('anunturi_show', { 'id': anunturi.id }) }}">show</a>
-            </li>
-            <li>
-              <a href="{{ path('anunturi_edit', { 'id': anunturi.id }) }}">edit</a>
-            </li>
-          </ul>
-        </td>
-      </tr>
-    {% endfor %}
-    </tbody>
-  </table>
   
 {% endblock %}
