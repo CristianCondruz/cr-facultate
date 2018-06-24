@@ -3,3 +3,12 @@
   padding-top: 30px;
   padding-bottom: 30px;
 }
+
+.registration-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.registration-title {
+  padding-bottom: 20px;
+}
