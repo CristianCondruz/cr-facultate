@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Situatie scolara{% endblock %}
+
+{% block body %}
+  
+  
+  <div id="adaugare-nota-wrapper" class="w-75 p-3 align-items-center justify-content-center h-10">
+    <h1 class="form-title">Situatie scolara</h1>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        {% for header in headers %}
+          <td>{{ header }}</td>
+        {% endfor %}
+      </tr>
+      </thead>
+      <tbody>
+      {% for situatie in situatii %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ situatie.student.prenume ~ situatie.student.nume }}</td>
+        <td>{{ situatie.nota }}</td>
+        <td>{{ situatie.data|date('d-m-Y') }}</td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock %}

@@ -27,74 +27,32 @@ class CadreDidactice extends User {
   /**
    * @var string
    *
-   * @ORM\Column(name="nume", type="string", length=255)
-   */
-  private $nume;
-
-  /**
-   * @var string
-   *
-   * @ORM\Column(name="prenume", type="string", length=255)
-   */
-  private $prenume;
-
-  /**
-   * @var string
-   *
    * @ORM\Column(name="grad", type="string", length=255)
    */
   private $grad;
-  /** @ORM\ManyToOne(targetEntity="Catedre")
-     *  @ORM\JoinColumn(name="id_catedre",referencedColumnName="id")
-     */
-  private $id_catedre;
+
+  /**
+   * @ORM\ManyToOne(targetEntity="Catedre")
+   * @ORM\JoinColumn(name="id_catedre", referencedColumnName="id")
+   */
+  private $catedre;
+
+  /**
+   * @return mixed
+   */
+  public function getCatedre() {
+    return $this->catedre;
+  }
+
+  /**
+   * @param mixed $catedre
+   */
+  public function setCatedre($catedre) {
+    $this->catedre = $catedre;
+  }
 
   public function getRoles() {
     return ['ROLE_CADRE_DIDACTICE', 'ROLE_USER'];
-  }
-
-  /**
-   * Set nume
-   *
-   * @param string $nume
-   *
-   * @return CadreDidactice
-   */
-  public function setNume($nume) {
-    $this->nume = $nume;
-
-    return $this;
-  }
-
-  /**
-   * Get nume
-   *
-   * @return string
-   */
-  public function getNume() {
-    return $this->nume;
-  }
-
-  /**
-   * Set prenume
-   *
-   * @param string $prenume
-   *
-   * @return CadreDidactice
-   */
-  public function setPrenume($prenume) {
-    $this->prenume = $prenume;
-
-    return $this;
-  }
-
-  /**
-   * Get prenume
-   *
-   * @return string
-   */
-  public function getPrenume() {
-    return $this->prenume;
   }
 
   /**
@@ -118,5 +76,6 @@ class CadreDidactice extends User {
   public function getGrad() {
     return $this->grad;
   }
+
 }
 

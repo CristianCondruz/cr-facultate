@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form\Type;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -16,6 +17,10 @@ class RegistrationStudentFormType extends AbstractType {
     $builder
       ->add('nume', TextType::class, $options = ['required' => TRUE])
       ->add('prenume', TextType::class, $options = ['required' => TRUE])
+      ->add('serie', EntityType::class, [
+        'class' => 'AppBundle:Serie',
+        'choice_label' => 'nume'
+      ], $options = ['required' => TRUE])
       ->add('date_nastere', BirthdayType::class, $options = ['required' => TRUE])
       ->add('adresa_domiciliu', TextareaType::class, $options = ['required' => TRUE])
       ->add('cnp', IntegerType::class, $options = ['required' => TRUE])

@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * DateStudenti
  *
- * @ORM\Table(name="date_studenti")
+ * @ORM\Table(name="date_studenti_anual")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\DateStudentiRepository")
  */
-class DateStudenti {
+class DateStudentiAnual {
 
   /**
    * @ORM\Id
@@ -45,6 +45,11 @@ class DateStudenti {
    * @ORM\Column(name="nr_credite_acumulate", type="integer", nullable=true)
    */
   private $nrCrediteAcumulate;
+
+  /** @ORM\ManyToOne(targetEntity="Student")
+   *  @ORM\JoinColumn(name="id_student", referencedColumnName="id")
+   */
+  private $student;
 
 
   /**

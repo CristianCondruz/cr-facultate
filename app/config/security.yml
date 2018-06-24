@@ -7,6 +7,7 @@ security:
     role_hierarchy:
         ROLE_STUDENT: ROLE_USER
         ROLE_CADRE_DIDACTICE: ROLE_USER
+        ROLE_ADMIN: ROLE_USER
 
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
@@ -25,7 +26,6 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
-                default_target_path: after_login_route_name
 
             logout: ~
             anonymous: true
@@ -45,3 +45,4 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/adaugare-note, role: ROLE_CADRE_DIDACTICE }

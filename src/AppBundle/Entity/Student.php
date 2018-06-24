@@ -45,24 +45,36 @@ class Student extends User {
    */
   private $cnp;
 
-  /** @ORM\ManyToOne(targetEntity="Serie")
-  *  @ORM\JoinColumn(name="id_serie",referencedColumnName="id")
-  */
-  private $id_serie; 
+  /**
+   * @ORM\ManyToOne(targetEntity="Serie")
+   * @ORM\JoinColumn(name="id_serie", referencedColumnName="id")
+   */
+  private $serie;
 
-    /** @ORM\ManyToOne(targetEntity="DateStudenti")
-  *  @ORM\JoinColumn(name="id_date_studenti",referencedColumnName="id")
-  */
-  private $id_date_studenti;
+  /**
+   * @return mixed
+   */
+  public function getSerie() {
+    return $this->serie;
+  }
+
+  /**
+   * @param mixed $serie
+   */
+  public function setSerie($serie) {
+    $this->serie = $serie;
+  }
+
+  public function getRoles() {
+    return ['ROLE_STUDENT', 'ROLE_USER'];
+  }
 
   /**
    * Set dateNastere
    *
    * @param \DateTime $dateNastere
-
    */
-  public function setDateNastere($dateNastere)
-  {
+  public function setDateNastere($dateNastere) {
     $this->dateNastere = $dateNastere;
   }
 
@@ -71,8 +83,7 @@ class Student extends User {
    *
    * @return \DateTime
    */
-  public function getDateNastere()
-  {
+  public function getDateNastere() {
     return $this->dateNastere;
   }
 
@@ -82,8 +93,7 @@ class Student extends User {
    * @param string $adresaDomiciliu
    *
    */
-  public function setAdresaDomiciliu($adresaDomiciliu)
-  {
+  public function setAdresaDomiciliu($adresaDomiciliu) {
     $this->adresaDomiciliu = $adresaDomiciliu;
   }
 
@@ -92,8 +102,7 @@ class Student extends User {
    *
    * @return string
    */
-  public function getAdresaDomiciliu()
-  {
+  public function getAdresaDomiciliu() {
     return $this->adresaDomiciliu;
   }
 
@@ -103,8 +112,7 @@ class Student extends User {
    * @param integer $cnp
    *
    */
-  public function setCnp($cnp)
-  {
+  public function setCnp($cnp) {
     $this->cnp = $cnp;
   }
 
@@ -113,8 +121,7 @@ class Student extends User {
    *
    * @return int
    */
-  public function getCnp()
-  {
+  public function getCnp() {
     return $this->cnp;
   }
 
