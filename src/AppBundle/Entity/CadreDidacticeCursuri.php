@@ -20,8 +20,17 @@ class CadreDidacticeCursuri
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /** @ORM\ManyToOne(targetEntity="CadreDidactice")
+     *  @ORM\JoinColumn(name="id_cadre_didactice",referencedColumnName="id")
+     */
+    private $id_cadre_didactice;  
 
-
+    /** @ORM\ManyToOne(targetEntity="ProgramaScolara")
+     *  @ORM\JoinColumn(name="id_programa_scolara",referencedColumnName="id")
+     */
+    private $id_programa_scolara; 
+    
     /**
      * Get id
      *

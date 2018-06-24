@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * LocatiiCursuri
  *
@@ -28,12 +29,18 @@ class LocatiiCursuri
      */
     private $dataOra;
 
-
     /**
-     * Get id
-     *
-     * @return int
+     * @ORM\ManyToOne(targetEntity="Locatii")
+     * @ORM\JoinColumn(name="id_locatie",referencedColumnName="id")
      */
+    private $id_locatie;
+     
+    /** @ORM\ManyToOne(targetEntity="CadreDidacticeCursuri")
+     *  @ORM\JoinColumn(name="id_cadre_didactice_cursuri",referencedColumnName="id")
+     */
+    private $id_cadre_didactice_cursuri;
+
+    
     public function getId()
     {
         return $this->id;

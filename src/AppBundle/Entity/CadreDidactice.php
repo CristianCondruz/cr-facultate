@@ -44,6 +44,10 @@ class CadreDidactice extends User {
    * @ORM\Column(name="grad", type="string", length=255)
    */
   private $grad;
+  /** @ORM\ManyToOne(targetEntity="Catedre")
+     *  @ORM\JoinColumn(name="id_catedre",referencedColumnName="id")
+     */
+  private $id_catedre;
 
   public function getRoles() {
     return ['ROLE_CADRE_DIDACTICE', 'ROLE_USER'];
