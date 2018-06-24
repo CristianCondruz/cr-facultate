@@ -35,6 +35,15 @@ class SituatieScoalara
      */
     private $data;
 
+    /** @ORM\ManyToOne(targetEntity="CadreDidacticeSerie")
+     *  @ORM\JoinColumn(name="id_cadre_didactice_serie",referencedColumnName="id")
+     */
+    private $id_cadre_didactice_serie;
+
+    /** @ORM\ManyToOne(targetEntity="Student")
+     *  @ORM\JoinColumn(name="id_student",referencedColumnName="id")
+     */
+    private $id_student; 
 
     /**
      * Get id

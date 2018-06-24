@@ -41,6 +41,12 @@ class Serie
      *
      * @return int
      */
+
+    /** @ORM\ManyToOne(targetEntity="Specializare")
+    *  @ORM\JoinColumn(name="id_specializare",referencedColumnName="id")
+    */
+    private $id_specializare; 
+
     public function getId()
     {
         return $this->id;

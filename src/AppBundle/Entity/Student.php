@@ -45,6 +45,15 @@ class Student extends User {
    */
   private $cnp;
 
+  /** @ORM\ManyToOne(targetEntity="Serie")
+  *  @ORM\JoinColumn(name="id_serie",referencedColumnName="id")
+  */
+  private $id_serie; 
+
+    /** @ORM\ManyToOne(targetEntity="DateStudenti")
+  *  @ORM\JoinColumn(name="id_date_studenti",referencedColumnName="id")
+  */
+  private $id_date_studenti;
 
   /**
    * Set dateNastere

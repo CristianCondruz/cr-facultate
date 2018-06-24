@@ -21,6 +21,15 @@ class CadreDidacticeSerie
      */
     private $id;
 
+    /** @ORM\ManyToOne(targetEntity="CadreDidacticeCursuri")
+     *  @ORM\JoinColumn(name="id_cadre_didactice_cursuri",referencedColumnName="id")
+     */
+    private $id_cadre_didactice_cursuri; 
+   
+    /** @ORM\ManyToOne(targetEntity="Serie")
+     *  @ORM\JoinColumn(name="id_serie",referencedColumnName="id")
+     */
+    private $id_serie; 
 
     /**
      * Get id
