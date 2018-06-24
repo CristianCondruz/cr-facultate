@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Studenti
+ * Student
  *
- * @ORM\Table(name="studenti")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\StudentiRepository")
+ * @ORM\Table(name="student")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\StudentRepository")
  */
-class Studenti
+class Student
 {
     /**
      * @var int
@@ -65,7 +65,7 @@ class Studenti
      *
      * @param integer $grupa
      *
-     * @return Studenti
+     * @return Student
      */
     public function setGrupa($grupa)
     {
@@ -89,7 +89,7 @@ class Studenti
      *
      * @param integer $an
      *
-     * @return Studenti
+     * @return Student
      */
     public function setAn($an)
     {
@@ -113,7 +113,7 @@ class Studenti
      *
      * @param float $mediaGenerala
      *
-     * @return Studenti
+     * @return Student
      */
     public function setMediaGenerala($mediaGenerala)
     {
@@ -137,7 +137,7 @@ class Studenti
      *
      * @param integer $nrCrediteAcumulate
      *
-     * @return Studenti
+     * @return Student
      */
     public function setNrCrediteAcumulate($nrCrediteAcumulate)
     {

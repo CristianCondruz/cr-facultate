@@ -123,7 +123,7 @@ class AnunturiController extends Controller
      *
      * @param Anunturi $anunturi The anunturi entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createDeleteForm(Anunturi $anunturi)
     {

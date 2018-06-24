@@ -16,7 +16,8 @@ class RegistrationFormType extends AbstractType {
       ->remove('username')
       ->add('roles', ChoiceType::class, [
         'multiple' => true,
-        'expanded' => true, // render check-boxes
+        'expanded' => false, // render check-boxes
+        'label' => "Test",
         'choices' => [
           'Profesor' => 'ROLE_PROF',
           'Student' => 'ROLE_STUDENT',
