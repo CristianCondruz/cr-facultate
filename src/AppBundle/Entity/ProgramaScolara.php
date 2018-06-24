@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ProgramaScoalara
+ * ProgramaScolara
  *
  * @ORM\Table(name="programa_scoalara")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProgramaScoalaraRepository")
  */
-class ProgramaScoalara
+class ProgramaScolara
 {
     /**
      * @var int
@@ -72,7 +72,7 @@ class ProgramaScoalara
      *
      * @param string $numeCurs
      *
-     * @return ProgramaScoalara
+     * @return ProgramaScolara
      */
     public function setNumeCurs($numeCurs)
     {
@@ -96,7 +96,7 @@ class ProgramaScoalara
      *
      * @param integer $anStudii
      *
-     * @return ProgramaScoalara
+     * @return ProgramaScolara
      */
     public function setAnStudii($anStudii)
     {
@@ -120,7 +120,7 @@ class ProgramaScoalara
      *
      * @param integer $semestru
      *
-     * @return ProgramaScoalara
+     * @return ProgramaScolara
      */
     public function setSemestru($semestru)
     {
@@ -144,7 +144,7 @@ class ProgramaScoalara
      *
      * @param integer $puncteCredit
      *
-     * @return ProgramaScoalara
+     * @return ProgramaScolara
      */
     public function setPuncteCredit($puncteCredit)
     {
@@ -168,7 +168,7 @@ class ProgramaScoalara
      *
      * @param string $durataSaptamanala
      *
-     * @return ProgramaScoalara
+     * @return ProgramaScolara
      */
     public function setDurataSaptamanala($durataSaptamanala)
     {
