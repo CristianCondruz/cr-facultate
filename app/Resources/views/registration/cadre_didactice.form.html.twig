@@ -1,14 +1,60 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
+{% block title %}Inregistrare cadre didactice!{% endblock %}
+
 {% block fos_user_content %}
   {% trans_default_domain 'FOSUserBundle' %}
   
-  <h1>Cadre didactice</h1>
+  <div class="registration-wrapper w-75 p-3 align-items-center justify-content-center h-100">
+    <h1 class="registration-title">Inregistrare cadre didactice</h1>
+    
+    {{ form_start(form, {'method': 'post', 'action': path('cadre_didactice_registration'), 'attr': {'class': ''}}) }}
   
-  <form action="{{ path('cadre_didactice_registration') }}" method="POST">
-    {{ form_widget(form) }}
-    <div>
-      <input type="submit" value="{{ 'registration.submit'|trans }}" />
+    <div class="form-group row">
+      {{ form_label(form.nume, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
+      <div class="col-sm-9">
+        {{ form_widget(form.nume) }}
+      </div>
     </div>
-  </form>
+  
+    <div class="form-group row">
+      {{ form_label(form.prenume, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
+      <div class="col-sm-9">
+        {{ form_widget(form.prenume) }}
+      </div>
+    </div>
+  
+    <div class="form-group row">
+      {{ form_label(form.email, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
+      <div class="col-sm-9">
+        {{ form_widget(form.email) }}
+      </div>
+    </div>
+  
+    <div class="form-group row">
+      {{ form_label(form.plainPassword.first, 'Parola', {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
+      <div class="col-sm-9">
+        {{ form_widget(form.plainPassword.first) }}
+      </div>
+    </div>
+  
+    <div class="form-group row">
+      {{ form_label(form.plainPassword.second, 'Confirma parola', {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
+      <div class="col-sm-9">
+        {{ form_widget(form.plainPassword.second) }}
+      </div>
+    </div>
+  
+    <div class="form-group row">
+      {{ form_label(form.grad, 'Grad', {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
+      <div class="col-sm-9">
+        {{ form_widget(form.grad) }}
+      </div>
+    </div>
+    
+    <div style="text-align: center">
+      <button type="submit" class="btn btn-primary">Inregistreaza-te!</button>
+    </div>
+    {{ form_end(form) }}
+  </div>
 {% endblock fos_user_content %}
