@@ -3,157 +3,111 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
 
 /**
  * Student
  *
  * @ORM\Table(name="student")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\StudentRepository")
+ * @UniqueEntity(fields = "username", targetClass = "AppBundle\Entity\User",
+ *   message="fos_user.username.already_used")
+ * @UniqueEntity(fields = "email", targetClass = "AppBundle\Entity\User",
+ *   message="fos_user.email.already_used")
  */
-class Student
-{
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
+class Student extends User {
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="grupa", type="integer")
-     */
-    private $grupa;
+  /**
+   * @ORM\Id
+   * @ORM\Column(type="integer")
+   * @ORM\GeneratedValue(strategy="AUTO")
+   */
+  protected $id;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="an", type="integer")
-     */
-    private $an;
+  /**
+   * @var \DateTime
+   *
+   * @ORM\Column(name="date_nastere", type="date")
+   */
+  private $dateNastere;
 
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="media_generala", type="float")
-     */
-    private $mediaGenerala;
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="adresa_domiciliu", type="string", length=255)
+   */
+  private $adresaDomiciliu;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="nr_credite_acumulate", type="integer")
-     */
-    private $nrCrediteAcumulate;
+  /**
+   * @var int
+   *
+   * @ORM\Column(name="cnp", type="bigint", unique=true)
+   */
+  private $cnp;
 
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+  /**
+   * Set dateNastere
+   *
+   * @param \DateTime $dateNastere
 
-    /**
-     * Set grupa
-     *
-     * @param integer $grupa
-     *
-     * @return Student
-     */
-    public function setGrupa($grupa)
-    {
-        $this->grupa = $grupa;
+   */
+  public function setDateNastere($dateNastere)
+  {
+    $this->dateNastere = $dateNastere;
+  }
 
-        return $this;
-    }
+  /**
+   * Get dateNastere
+   *
+   * @return \DateTime
+   */
+  public function getDateNastere()
+  {
+    return $this->dateNastere;
+  }
 
-    /**
-     * Get grupa
-     *
-     * @return int
-     */
-    public function getGrupa()
-    {
-        return $this->grupa;
-    }
+  /**
+   * Set adresaDomiciliu
+   *
+   * @param string $adresaDomiciliu
+   *
+   */
+  public function setAdresaDomiciliu($adresaDomiciliu)
+  {
+    $this->adresaDomiciliu = $adresaDomiciliu;
+  }
 
-    /**
-     * Set an
-     *
-     * @param integer $an
-     *
-     * @return Student
-     */
-    public function setAn($an)
-    {
-        $this->an = $an;
+  /**
+   * Get adresaDomiciliu
+   *
+   * @return string
+   */
+  public function getAdresaDomiciliu()
+  {
+    return $this->adresaDomiciliu;
+  }
 
-        return $this;
-    }
+  /**
+   * Set cnp
+   *
+   * @param integer $cnp
+   *
+   */
+  public function setCnp($cnp)
+  {
+    $this->cnp = $cnp;
+  }
 
-    /**
-     * Get an
-     *
-     * @return int
-     */
-    public function getAn()
-    {
-        return $this->an;
-    }
+  /**
+   * Get cnp
+   *
+   * @return int
+   */
+  public function getCnp()
+  {
+    return $this->cnp;
+  }
 
-    /**
-     * Set mediaGenerala
-     *
-     * @param float $mediaGenerala
-     *
-     * @return Student
-     */
-    public function setMediaGenerala($mediaGenerala)
-    {
-        $this->mediaGenerala = $mediaGenerala;
-
-        return $this;
-    }
-
-    /**
-     * Get mediaGenerala
-     *
-     * @return float
-     */
-    public function getMediaGenerala()
-    {
-        return $this->mediaGenerala;
-    }
-
-    /**
-     * Set nrCrediteAcumulate
-     *
-     * @param integer $nrCrediteAcumulate
-     *
-     * @return Student
-     */
-    public function setNrCrediteAcumulate($nrCrediteAcumulate)
-    {
-        $this->nrCrediteAcumulate = $nrCrediteAcumulate;
-
-        return $this;
-    }
-
-    /**
-     * Get nrCrediteAcumulate
-     *
-     * @return int
-     */
-    public function getNrCrediteAcumulate()
-    {
-        return $this->nrCrediteAcumulate;
-    }
 }
 

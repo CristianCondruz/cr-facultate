@@ -1,0 +1,14 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+  {% trans_default_domain 'FOSUserBundle' %}
+  
+  <h1>Inregistrare studenti</h1>
+  
+  <form action="{{ path('student_registration') }}" method="POST" class="form-inline">
+    {{ form_widget(form) }}
+    <div>
+      <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+  </form>
+{% endblock fos_user_content %}

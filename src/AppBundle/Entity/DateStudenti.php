@@ -10,195 +10,129 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="date_studenti")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\DateStudentiRepository")
  */
-class DateStudenti
-{
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="numar_matricol", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $numar_matricol;
+class DateStudenti {
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nume", type="string", length=255)
-     */
-    private $nume;
+  /**
+   * @ORM\Id
+   * @ORM\Column(type="integer")
+   * @ORM\GeneratedValue(strategy="AUTO")
+   */
+  protected $id;
+  /**
+   * @var int
+   *
+   * @ORM\Column(name="grupa", type="integer", nullable=true)
+   */
+  private $grupa;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prenume", type="string", length=255)
-     */
-    private $prenume;
+  /**
+   * @var int
+   *
+   * @ORM\Column(name="an", type="integer", nullable=true)
+   */
+  private $an;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_nastere", type="date")
-     */
-    private $dateNastere;
+  /**
+   * @var float
+   *
+   * @ORM\Column(name="media_generala", type="float", nullable=true)
+   */
+  private $mediaGenerala;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="adresa_domiciliu", type="string", length=255)
-     */
-    private $adresaDomiciliu;
+  /**
+   * @var int
+   *
+   * @ORM\Column(name="nr_credite_acumulate", type="integer", nullable=true)
+   */
+  private $nrCrediteAcumulate;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="cnp", type="integer", unique=true)
-     */
-    private $cnp;
 
-    /**
-     * Set numarMatricol
-     *
-     * @param integer $numarMatricol
-     *
-     * @return DateStudenti
-     */
-    public function setNumarMatricol($numarMatricol)
-    {
-      $this->numarMatricol = $numarMatricol;
+  /**
+   * Set grupa
+   *
+   * @param integer $grupa
+   *
+   * @return Student
+   */
+  public function setGrupa($grupa) {
+    $this->grupa = $grupa;
 
-      return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getNumarmatricol()
-    {
-        return $this->numar_matricol;
-    }
+  /**
+   * Get grupa
+   *
+   * @return int
+   */
+  public function getGrupa() {
+    return $this->grupa;
+  }
 
-    /**
-     * Set nume
-     *
-     * @param string $nume
-     *
-     * @return DateStudenti
-     */
-    public function setNume($nume)
-    {
-        $this->nume = $nume;
+  /**
+   * Set an
+   *
+   * @param integer $an
+   *
+   * @return Student
+   */
+  public function setAn($an) {
+    $this->an = $an;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get nume
-     *
-     * @return string
-     */
-    public function getNume()
-    {
-        return $this->nume;
-    }
+  /**
+   * Get an
+   *
+   * @return int
+   */
+  public function getAn() {
+    return $this->an;
+  }
 
-    /**
-     * Set prenume
-     *
-     * @param string $prenume
-     *
-     * @return DateStudenti
-     */
-    public function setPrenume($prenume)
-    {
-        $this->prenume = $prenume;
+  /**
+   * Set mediaGenerala
+   *
+   * @param float $mediaGenerala
+   *
+   * @return Student
+   */
+  public function setMediaGenerala($mediaGenerala) {
+    $this->mediaGenerala = $mediaGenerala;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get prenume
-     *
-     * @return string
-     */
-    public function getPrenume()
-    {
-        return $this->prenume;
-    }
+  /**
+   * Get mediaGenerala
+   *
+   * @return float
+   */
+  public function getMediaGenerala() {
+    return $this->mediaGenerala;
+  }
 
-    /**
-     * Set dateNastere
-     *
-     * @param \DateTime $dateNastere
-     *
-     * @return DateStudenti
-     */
-    public function setDateNastere($dateNastere)
-    {
-        $this->dateNastere = $dateNastere;
+  /**
+   * Set nrCrediteAcumulate
+   *
+   * @param integer $nrCrediteAcumulate
+   *
+   * @return Student
+   */
+  public function setNrCrediteAcumulate($nrCrediteAcumulate) {
+    $this->nrCrediteAcumulate = $nrCrediteAcumulate;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get dateNastere
-     *
-     * @return \DateTime
-     */
-    public function getDateNastere()
-    {
-        return $this->dateNastere;
-    }
-
-    /**
-     * Set adresaDomiciliu
-     *
-     * @param string $adresaDomiciliu
-     *
-     * @return DateStudenti
-     */
-    public function setAdresaDomiciliu($adresaDomiciliu)
-    {
-        $this->adresaDomiciliu = $adresaDomiciliu;
-
-        return $this;
-    }
-
-    /**
-     * Get adresaDomiciliu
-     *
-     * @return string
-     */
-    public function getAdresaDomiciliu()
-    {
-        return $this->adresaDomiciliu;
-    }
-
-    /**
-     * Set cnp
-     *
-     * @param integer $cnp
-     *
-     * @return DateStudenti
-     */
-    public function setCnp($cnp)
-    {
-        $this->cnp = $cnp;
-
-        return $this;
-    }
-
-    /**
-     * Get cnp
-     *
-     * @return int
-     */
-    public function getCnp()
-    {
-        return $this->cnp;
-    }
-
+  /**
+   * Get nrCrediteAcumulate
+   *
+   * @return int
+   */
+  public function getNrCrediteAcumulate() {
+    return $this->nrCrediteAcumulate;
+  }
 }
 

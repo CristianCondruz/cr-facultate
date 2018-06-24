@@ -3,126 +3,116 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
 
 /**
  * CadreDidactice
  *
  * @ORM\Table(name="cadre_didactice")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CadreDidacticeRepository")
+ * @UniqueEntity(fields = "username", targetClass = "AppBundle\Entity\User",
+ *   message="fos_user.username.already_used")
+ * @UniqueEntity(fields = "email", targetClass = "AppBundle\Entity\User",
+ *   message="fos_user.email.already_used")
  */
-class CadreDidactice
-{
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
+class CadreDidactice extends User {
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nume", type="string", length=255)
-     */
-    private $nume;
+  /**
+   * @ORM\Id
+   * @ORM\Column(type="integer")
+   * @ORM\GeneratedValue(strategy="AUTO")
+   */
+  protected $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prenume", type="string", length=255)
-     */
-    private $prenume;
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="nume", type="string", length=255)
+   */
+  private $nume;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="grad", type="string", length=255)
-     */
-    private $grad;
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="prenume", type="string", length=255)
+   */
+  private $prenume;
 
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="grad", type="string", length=255)
+   */
+  private $grad;
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+  public function getRoles() {
+    return ['ROLE_CADRE_DIDACTICE', 'ROLE_USER'];
+  }
 
-    /**
-     * Set nume
-     *
-     * @param string $nume
-     *
-     * @return CadreDidactice
-     */
-    public function setNume($nume)
-    {
-        $this->nume = $nume;
+  /**
+   * Set nume
+   *
+   * @param string $nume
+   *
+   * @return CadreDidactice
+   */
+  public function setNume($nume) {
+    $this->nume = $nume;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get nume
-     *
-     * @return string
-     */
-    public function getNume()
-    {
-        return $this->nume;
-    }
+  /**
+   * Get nume
+   *
+   * @return string
+   */
+  public function getNume() {
+    return $this->nume;
+  }
 
-    /**
-     * Set prenume
-     *
-     * @param string $prenume
-     *
-     * @return CadreDidactice
-     */
-    public function setPrenume($prenume)
-    {
-        $this->prenume = $prenume;
+  /**
+   * Set prenume
+   *
+   * @param string $prenume
+   *
+   * @return CadreDidactice
+   */
+  public function setPrenume($prenume) {
+    $this->prenume = $prenume;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get prenume
-     *
-     * @return string
-     */
-    public function getPrenume()
-    {
-        return $this->prenume;
-    }
+  /**
+   * Get prenume
+   *
+   * @return string
+   */
+  public function getPrenume() {
+    return $this->prenume;
+  }
 
-    /**
-     * Set grad
-     *
-     * @param string $grad
-     *
-     * @return CadreDidactice
-     */
-    public function setGrad($grad)
-    {
-        $this->grad = $grad;
+  /**
+   * Set grad
+   *
+   * @param string $grad
+   *
+   * @return CadreDidactice
+   */
+  public function setGrad($grad) {
+    $this->grad = $grad;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get grad
-     *
-     * @return string
-     */
-    public function getGrad()
-    {
-        return $this->grad;
-    }
+  /**
+   * Get grad
+   *
+   * @return string
+   */
+  public function getGrad() {
+    return $this->grad;
+  }
 }
 
